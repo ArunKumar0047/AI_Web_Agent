@@ -22,11 +22,11 @@ The core idea of this project is to develop an AI agent that can take the variou
      - `submit_form` : used to submit the form once filled
 
 2. The agent's prompt is made in such a way that the details that needs to be filled in the form are extracted from the user's text input along with the link to the form.
-4. So after parsing the values from the input, the agent uses the `load_page` to start the webpage initially.
+4. So after parsing the values from the input, the agent uses the `load_page` tool to start the webpage initially.
 5. Relative xpath is used to find the location of the specific input elements. The prompt is pre-defined as to the input fields in the form. This is done to ease the finding of the location of the elements in the forms page.
-6. Once the labels are found, the necessary inputs or checks that need to be done in that label are implemented by the agent.
+6. Once the labels are found, the necessary inputs or checks that need to be done in that label are implemented by the agent. If the input is a text, then `fill_text_input` tool is called with the label and value or if it is a radio or checkbox then `select_radio_or_checkbox` tool is called
 7. The agent's output and the output from the tools are loogged and can also be found in the intermediate_steps of the agent
-8. After filling out, the agent calls the submit tool to submit the form.
+8. After filling out, the agent calls the `submit_form` tool to submit the form.
 
 ### How to run?
 - `pip install -r requirements.txt` : install all the necessary libraries required to run the agent
